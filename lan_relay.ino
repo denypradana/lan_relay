@@ -12,7 +12,7 @@ EthernetServer server(8888);
 String readString;
 String statusRelay;
 
-void setup() {
+void setup() {  
   
   Serial.begin(9600);
   while (!Serial) {
