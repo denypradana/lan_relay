@@ -5,7 +5,7 @@
 int pinRelay = 2;
 int pos = 0;
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };   
-byte ip[] = { 192, 168, 2, 90 };                    
+byte ip[] = { 192, 168, 2, 200 };                    
 byte gateway[] = { 192, 168, 2, 1 };                 
 byte subnet[] = { 255, 255, 255, 0 };                  
 EthernetServer server(8888);                           
@@ -25,7 +25,7 @@ void setup() {
   // start the Ethernet connection and the server:
   Ethernet.begin(mac, ip, gateway, subnet);
   server.begin();
-  Serial.print("server is at ");
+  Serial.print("Server IP Address : ");
   Serial.println(Ethernet.localIP());
 }
 
@@ -56,7 +56,7 @@ void loop() {
           client.println("<meta name='apple-mobile-web-app-capable' content='yes' />");
           client.println("<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />");
           client.println("<meta http-equiv='refresh' content='1' >");
-          client.println("<TITLE>Smart HomeProjects</TITLE>");
+          client.println("<TITLE>Smart Projects</TITLE>");
           client.println("<style>");
           client.println(".button{");
           /*ubah warna background*/
@@ -79,14 +79,14 @@ void loop() {
           client.println("</style>");
           client.println("</HEAD>");
           client.println("<BODY>");
-          client.println("<H1>Smart Home</H1>");
+          client.println("<H1>Smart Motor</H1>");
           client.println("<hr />");
           client.println("<br />");
-          client.println("<H2>RUANG_TENGAH</H2>");
+          client.println("<H2>MOTORAN 3 PHASA</H2>");
           client.println("<br />");
           //BUTTON FOR FIRST LED
-          client.println("<a href=\"/?button1on\" class=\"button\"\">Turn On Relay 1</a>");
-          client.println("<a href=\"/?button1off\" class=\"button\"\">Turn Off Relay 1</a><br />");
+          client.println("<a href=\"/?button1on\" class=\"button\"\">Turn On Motor 1</a>");
+          client.println("<a href=\"/?button1off\" class=\"button\"\">Turn Off Motor 1</a><br />");
           client.println("<br />");
           client.println(statusRelay);
           client.println("</BODY>");
