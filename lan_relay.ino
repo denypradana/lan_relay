@@ -92,7 +92,7 @@ void loop() {
           client.println("</BODY>");
           client.println("</HTML>");
 
-          delay(1);
+          delay(1000);
           //stopping client
           client.stop();
           //controls the Arduino if you press the buttons
