@@ -48,8 +48,10 @@ void loop() {
         if (c == '\n') {
           Serial.println(readString);
           //html file
+          
           client.println("HTTP/1.1 200 OK");
           client.println("Content-Type: text/html");
+          client.println("Connection: close");
           client.println();
           client.println("<HTML>");
           client.println("<HEAD>");
@@ -59,21 +61,21 @@ void loop() {
           client.println("<TITLE>Smart Projects</TITLE>");
           client.println("<style>");
           client.println(".button{");
-          /*ubah warna background*/
+          //ubah warna background
           client.println("background-color: #424eee;");
-          /*ubah warna teks*/
+          //ubah warna teks
           client.println("color: white;");
-          /*hilangkan garis bawah pada teks*/
+          //hilangkan garis bawah pada teks
           client.println("text-decoration: none;");
-          /*teks rata tengah*/
+          //teks rata tengah
           client.println("text-align: center;");
-          /*atur jarak margin/luar*/
+          //atur jarak margin/luar
           client.println("margin: 5px 10px;");
-          /*atur jarak padding/dalam*/
+          //atur jarak padding/dalam
           client.println("padding: 10px 15px;");
-          /*ubah tampilan kursor*/
+          //ubah tampilan kursor
           client.println("cursor: pointer;");
-          /*membuat efek bayangan*/
+          //membuat efek bayangan
           client.println("box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);");
           client.println("}");
           client.println("</style>");
@@ -91,8 +93,8 @@ void loop() {
           client.println(statusRelay);
           client.println("</BODY>");
           client.println("</HTML>");
-
-          delay(1000);
+          
+          delay(1);
           //stopping client
           client.stop();
           //controls the Arduino if you press the buttons
