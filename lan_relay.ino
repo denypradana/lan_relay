@@ -5,8 +5,8 @@
 int pinRelay = 2;
 int pos = 0;
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };   
-byte ip[] = { 192, 168, 2, 200 };                    
-byte gateway[] = { 192, 168, 2, 1 };                 
+byte ip[] = { 192, 168, 100, 111 };                    
+byte gateway[] = { 192, 168, 100, 1 };                 
 byte subnet[] = { 255, 255, 255, 0 };                  
 EthernetServer server(8888);                           
 String readString;
@@ -19,7 +19,7 @@ void setup() {
     ; 
   }
   pinMode(pinRelay, OUTPUT);
-  digitalWrite(pinRelay, HIGH);
+  digitalWrite(pinRelay, LOW);
   statusRelay="OFF";
 
   // start the Ethernet connection and the server:
@@ -99,11 +99,11 @@ void loop() {
           client.stop();
           //controls the Arduino if you press the buttons
           if (readString.indexOf("?button1on") > 0) {
-            digitalWrite(pinRelay, LOW);
+            digitalWrite(pinRelay, HIGH);
             statusRelay="ON";
           }
           if (readString.indexOf("?button1off") > 0) {
-            digitalWrite(pinRelay, HIGH);
+            digitalWrite(pinRelay, LOW);
             statusRelay="OFF";
           }
 
